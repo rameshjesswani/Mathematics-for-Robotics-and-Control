@@ -1,0 +1,13 @@
+Question : 1
+What is breakaway point?
+Answer :
+The point where locus leaves the real axis is called breakaway point.
+Question : 2
+What is settling time?
+Answer :
+When signal is 98% to 102% of the output value, it is called settling time. 
+Question : 3
+What are zeros of transfer function?
+Answer :
+Zeros are values of laplace transform variable s that causes transfer function to become 0 .
+
