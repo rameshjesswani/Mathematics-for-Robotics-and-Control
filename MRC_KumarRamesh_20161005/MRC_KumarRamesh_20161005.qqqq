@@ -1,0 +1,13 @@
+Question 1:
+what is difference between eigen vector and simple vector?
+Answer : Eigen vector is always used to preserve the direction, and its direction always shows maximum information in particular direction. Each eigen value has its eigen vector. Whereas, simple vector just has magnitude and direction.
+
+Question 2:
+Which norm is computed in python by default?
+Answer : In python , by default, norm 2 is computed.
+
+Question 3:
+How do we know that eigen vector is normal to the point or not?
+Answer : Eigen vector with its lowest eigen value is always normal to the particular point.
+
+
