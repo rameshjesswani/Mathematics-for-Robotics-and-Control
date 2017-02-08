@@ -1,0 +1,7 @@
+Question 1 : Why Singular Value Decomposition is useful? 
+Answer: It is useful because it takes maximum information from images of larger size and compress it into smaller size.Apart from this, there are many other applications of SVD such as face recognition, solution of linear equations etc.
+Question 2: What is principal component analysis?
+Answer : It is a tool which identifies patterns of data, and detects the correlation between the variables. If there is strong correlation between the variables then PCA tries to reduce dimension while retaining most of information.
+Question 3: What is eigen face?
+Answer : Eigen face is a combination of eigen vectors in single image.
+ 
