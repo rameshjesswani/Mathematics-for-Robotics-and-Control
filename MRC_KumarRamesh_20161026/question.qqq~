@@ -1,0 +1,9 @@
+Question 1:
+What is jacobian matrix in robotics?
+Answer : A Jacobian defines the dynamic relationship between two different representations of a system. It can be used to find end-effector velocity when co-ordinates of joints angles are given.
+Question 2:
+What is fixed point iteration?
+Answer : fixed-point iteration is a method of computing fixed points of iterated functions.
+Question 3:
+
+
