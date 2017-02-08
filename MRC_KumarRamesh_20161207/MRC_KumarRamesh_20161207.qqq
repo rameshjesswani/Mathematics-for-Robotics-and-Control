@@ -1,0 +1,12 @@
+Question 1:
+What is transient response?
+Answer :
+A transient response or natural response is the response of a system to a change from an equilibrium or a steady state. 
+Question 2:
+When system is unstable?
+Answer :
+A system is unstable when poles(roots of denominator) lies on right hand side (positive x-axis)
+Question 3:
+When system in underdamped?
+Answer :
+If there is an imaginary component to the root, then the system oscillates and it is called as underdamped.
