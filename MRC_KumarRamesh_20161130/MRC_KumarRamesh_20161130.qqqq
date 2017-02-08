@@ -1,0 +1,12 @@
+Question 1 :
+What is laplace transform?
+Answer :
+It takes a function of a positive real variable t (often time) to a function of a complex variable s (frequency).
+Question 2 :
+What is Heaviside step function?
+Answer :
+The Heaviside step function, or the unit step function, usually denoted by H or θ (but sometimes u, 1 or 𝟙), is a discontinuous function whose value is zero for negative argument and one for positive argument.
+Question 3 :
+What is transfer function ?
+Answer :
+A transfer function is ratio of laplace of output to the laplace of input.
