@@ -1,0 +1,7 @@
+Question 1 : What is Frame? 
+Answer : Frame is an entity that contains attributes of positions and orientations of various objects.
+Question 2 : Why Atan2 is used instead of Atan?
+Answer : Atan2 is a function which takes two arguments(x and y), furthermore, it also returns exact quadrant of the computed angle and it avoids division by zero too. whereas, this is not possible with Atan.
+Question 3 : What is difference between X-Y-Z fixed angles and Z-Y-X Euler angles?
+Answer : In fixed angles, all the rotations in respective frame(Frame B) takes place with respect of reference frame (frame A) .Whereas, in Z-Y-X Euler angles all the rotations in respective frame (Frame B)  takes place with that frame (Frame B) only unlike reference frame.
+
