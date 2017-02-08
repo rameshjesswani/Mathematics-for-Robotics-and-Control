@@ -1,0 +1,10 @@
+Question 1 :
+What is difference between orthogonal and orthonomal? 
+Answer :
+In orthogonal, dot product of vectors is always 0. In orthonomal, dot product of vectors is also 0 but length of each vector is unit or norm is 1.
+Question 2:
+What is overdetermined system?
+Answer : A system of equations is overdetermined if there are more equations than unknowns, and it is always inconsistent(has no solution).
+Question 3:
+What is pseudo inverse ?
+Answer : A pseudo inverse of matrix A is generalization of the inverse matrix, and it is used to compute a best fit(least squares) solution of linear equation.
