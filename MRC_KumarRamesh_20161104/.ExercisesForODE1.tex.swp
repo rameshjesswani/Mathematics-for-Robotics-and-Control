@@ -1,0 +1,451 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{article}
+
+    
+    
+    \usepackage{graphicx} % Used to insert images
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{color} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    
+
+    
+    
+    \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+    \definecolor{darkorange}{rgb}{.71,0.21,0.01}
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{myteal}{rgb}{.26, .44, .56}
+    \definecolor{gray}{gray}{0.45}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{mediumgray}{gray}{.8}
+    \definecolor{inputbackground}{rgb}{.95, .95, .85}
+    \definecolor{outputbackground}{rgb}{.95, .95, .95}
+    \definecolor{traceback}{rgb}{1, .95, .95}
+    % ansi colors
+    \definecolor{red}{rgb}{.6,0,0}
+    \definecolor{green}{rgb}{0,.65,0}
+    \definecolor{brown}{rgb}{0.6,0.6,0}
+    \definecolor{blue}{rgb}{0,.145,.698}
+    \definecolor{purple}{rgb}{.698,.145,.698}
+    \definecolor{cyan}{rgb}{0,.698,.698}
+    \definecolor{lightgray}{gray}{0.5}
+    
+    % bright ansi colors
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+    
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{ExercisesForODE1}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=blue,
+      linkcolor=darkorange,
+      citecolor=darkgreen,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    
+
+    \section{Mathematics for Robotics and Control - Assignment 7: Ordinary
+Differential
+Equations}\label{mathematics-for-robotics-and-control---assignment-7-ordinary-differential-equations}
+
+    For this assignment, you will be working with symbolic mathematics using
+the SymPy package for Python. In order to be able to work with the
+package efficiently, please familiarize yourself with SymPy by working
+through the tutorial:
+
+\href{http://docs.sympy.org/dev/tutorial/tutorial.en.html\#tutorial}{SymPy
+Tutorial}
+
+Also, make sure you know how SymPy differes from other CAS like Maple or
+Mathematica, which you may be familiar with. This information is
+detailed in the following document:
+
+\href{http://docs.sympy.org/dev/gotchas.html}{SymPy Gotchas}
+
+There is also an FAQ:
+
+\href{https://github.com/sympy/sympy/wiki/Faq}{SymPy FAQ}
+
+    Also, be sure to read the documentation/help on SymPy's ODE module.
+Simply evaluate the code in the next cell to obtain said documentation.
+Note that using ? allows you to obtain help on any function, module etc.
+when used in IPython.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}48}]:} \PY{k+kn}{import} \PY{n+nn}{sympy}
+         \PY{o}{?}sympy.ode
+\end{Verbatim}
+
+    Let us now start the assignment by examining some differential
+equations. First, have a look at the following quick example below to
+see how to enter code into the IPython notebook and how to work with
+SymPy.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}21}]:} \PY{c}{\PYZsh{} Enable pretty printing}
+         \PY{n}{sympy}\PY{o}{.}\PY{n}{init\PYZus{}printing}\PY{p}{(}\PY{n}{use\PYZus{}latex}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}45}]:} \PY{c}{\PYZsh{} Declare a symbolic variable x. Note that the x on the left side of the assignment is the Python variable name,}
+         \PY{c}{\PYZsh{} while the \PYZdq{}x\PYZdq{} on the right hand side denotes the symbol name. It makes a lot of sense to keep those names the same.}
+         \PY{n}{x} \PY{o}{=} \PY{n}{Symbol}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{x}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+         \PY{c}{\PYZsh{} y is a function of x, i.e. y(x)}
+         \PY{n}{y} \PY{o}{=} \PY{n}{Function}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{y}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+         \PY{c}{\PYZsh{} We use y\PYZus{} to denote y\PYZsq{}(x), i.e. the first derivative of y w.r.t. x}
+         \PY{n}{y\PYZus{}} \PY{o}{=} \PY{n}{Derivative}\PY{p}{(}\PY{n}{y}\PY{p}{,} \PY{n}{x}\PY{p}{)}
+         \PY{c}{\PYZsh{} ...an alternative way of writing this would be:}
+         \PY{n}{y\PYZus{}} \PY{o}{=} \PY{n}{y}\PY{o}{.}\PY{n}{diff}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{} Now let\PYZsq{}s examine a differential equation}
+         \PY{c}{\PYZsh{}}
+         \PY{c}{\PYZsh{}                x   d       }
+         \PY{c}{\PYZsh{} y(x)⋅sin(x) + ℯ  = ──(y(x))}
+         \PY{c}{\PYZsh{}                    dx      }
+         \PY{c}{\PYZsh{} }
+         \PY{n}{eq1} \PY{o}{=} \PY{n}{y} \PY{o}{*} \PY{n}{sin}\PY{p}{(}\PY{n}{x}\PY{p}{)} \PY{o}{+} \PY{n}{exp}\PY{p}{(}\PY{n}{x}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n}{y\PYZus{}}
+         
+         \PY{c}{\PYZsh{} We now determine a solution for this differential equation}
+         \PY{n}{dsolve}\PY{p}{(}\PY{n}{eq1}\PY{p}{)}
+\end{Verbatim}
+\texttt{\color{outcolor}Out[{\color{outcolor}45}]:}
+    
+    
+        \begin{equation*}\adjustbox{max width=\hsize}{$
+        \operatorname{y}{\left (x \right )} = \left(C_{1} + \int e^{x} e^{\cos{\left (x \right )}}\, dx\right) e^{- \cos{\left (x \right )}}
+        $}\end{equation*}
+
+    
+
+    For your first assignment, solve the following three ODEs \emph{by hand}
+and verify your results via SymPy. Please include the steps of your
+solutions in the input cell below using TeX syntax. You can find an
+introduction to mathematical expressions in LaTeX
+\href{http://en.wikibooks.org/wiki/LaTeX/Mathematics}{here}. In order
+for the IPython notebook to evaluate your mathematical expressions,
+enclose them in \$, i.e.
+
+\begin{verbatim}
+$ \sum_{i=1}^{10} t_i $ 
+\end{verbatim}
+
+will display the following expression: $\sum_{i=1}^{10} t_i$
+
+    \begin{center}\rule{3in}{0.4pt}\end{center}
+
+    \paragraph{Assignment 7.1: Solve the following ordinary differential
+equations by hand and verify your results using
+SymPy.}\label{assignment-7.1-solve-the-following-ordinary-differential-equations-by-hand-and-verify-your-results-using-sympy.}
+
+    Equation 1.1: $y^\prime = 5 \cdot y$
+
+    \emph{Insert your solution for Equation 1.1 here}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c}{\PYZsh{} Insert code to verify your solution for Equation 1.1 here and evaluate it}
+\end{Verbatim}
+
+    Equation 1.2: $\frac{\mathrm d y}{\mathrm d x} = -2 \cdot x \cdot y$
+
+    \emph{Insert your solution for Equation 1.2 here}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c}{\PYZsh{} Insert code to verify your solution for Equation 1.2 here and evaluate it}
+\end{Verbatim}
+
+    Equation 1.3: $\frac{\mathrm d y}{\mathrm d t} = y^2$
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c}{\PYZsh{} Insert code to verify your solution for Equation 1.3 here and evaluate it}
+\end{Verbatim}
+
+    \subsubsection{\emph{Assignment 7.1 took me}
+\emph{minutes.}}\label{assignment-7.1-took-me-minutes.}
+
+    \begin{center}\rule{3in}{0.4pt}\end{center}
+
+    \paragraph{Assignment 7.2: Determine if the following equations are
+linear and insert your solutions
+below.}\label{assignment-7.2-determine-if-the-following-equations-are-linear-and-insert-your-solutions-below.}
+
+    \emph{Note: simply stating that an equation is linear or not is not
+sufficient, please provide arguments/proof as to why this is the case.}
+
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  $y^\prime = sin(x) \cdot y + e^x$
+\item
+  $y^\prime + x \cdot y = e^x \cdot y$
+\item
+  $y^\prime + \frac{x}{y} = 0$
+\item
+  $x \cdot y^\prime + y = \sqrt{y}$
+\end{enumerate}
+
+    \emph{Assignment 7.2 took me} \emph{minutes.}
+
+    \begin{center}\rule{3in}{0.4pt}\end{center}
+
+    \paragraph{Assignment 7.3: Solve the following ordinary differential
+equations and specify an integrating factor. Insert your solutions
+below.}\label{assignment-7.3-solve-the-following-ordinary-differential-equations-and-specify-an-integrating-factor.-insert-your-solutions-below.}
+
+    \href{http://en.wikipedia.org/wiki/Integrating_factor}{Wikipedia:
+Integrating Factor}
+
+\href{http://www.cse.salford.ac.uk/profiles/gsmcdonald/H-Tutorials/ordinary-differential-equations-integrating-factor.pdf}{Tutorial
+on how to use the integrating factor method to solve ODEs} (PDF)
+
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  $y^\prime = -3 \cdot y = 6$
+\item
+  $y^\prime + \frac{4}{x} \cdot y = x^4$
+\end{enumerate}
+
+    \emph{Assignment 7.3 took me} \emph{minutes.}
+
+    \begin{center}\rule{3in}{0.4pt}\end{center}
+
+    \paragraph{Assignment 7.4: Solve the following differental
+equations}\label{assignment-7.4-solve-the-following-differental-equations}
+
+    Remember that a second order differential equation
+$y^{\prime \prime} + a_1 \cdot y^\prime + a_0 \cdot y = 0$ with
+constants $a_{0, 1}$ corresponds to the characteristic equation
+$\lambda^2 + a_1 \cdot \lambda + a_0 = 0$, which can be factored into
+$(\lambda - \lambda_1) \cdot (\lambda - \lambda_2) = 0$. This is useful
+since the general solution of
+$y^{\prime \prime} + a_1 \cdot y^\prime + a_0 \cdot y = 0$ can be
+obtained directly by determining the roots $\lambda_1$ and $\lambda_2$
+if the coefficients are constant and the differential equation is
+linear. Determine the roots of the following differential equations and
+specify their solutions. See the Wikipedia article on the
+\href{http://en.wikipedia.org/wiki/Characteristic_equation_(calculus)}{characteristic
+equation} for the three distinctive cases that determine how to obtain
+the solution based on what the roots are.
+
+Insert your solutions below and include code to proof your solutions are
+correct. Hint: use the sympy.ode.checkodesol function to validate your
+results.
+
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  $y^{\prime \prime} - y^\prime - 2 \cdot y = 0$
+\item
+  $y^{\prime \prime} - 3 \cdot y^\prime + 4 \cdot y = 0$
+\item
+  $y^{\prime \prime} + 4 \cdot y = 0$
+\end{enumerate}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}47}]:} \PY{c}{\PYZsh{} Include code here to show that your solutions are correct.}
+\end{Verbatim}
+
+    \emph{Assignment 7.4 took me} \emph{minutes.}
+
+    \begin{center}\rule{3in}{0.4pt}\end{center}
+
+    \emph{Use this button to create a .txt file containing the time in
+minutes you spent working on the assignments. Make sure to include your
+name in the textbox below. The file will be created in the current
+directory.}
+
+Student's name:
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}

@@ -1,0 +1,10 @@
+Question 1:
+What are methods to solve ODE?
+Answer :  There are five methods to solve ODE , separation of variables, Ansatz, Variation of constant, Numerical Calculation, Matlab/Simulink, Laplace.
+Question 2:
+What are applications of ODE's?
+Answer : Applications are : Falling Object, RLC ciruit, Modelling of DC Motor, spring/damper, etc.
+Question 3:
+What is jacobi iterative method?
+Answer : It is a simplest iterative method for solving a (square) linear system Ax=b. It gives approximate solutions of linear equations.
+
